@@ -1,6 +1,10 @@
 export const portfolioData = {
   about: {
-    text: "I’m an AI engineer focused on building intelligent systems, agentic architectures, and practical ML infrastructure. I studied mechanical engineering in college and artificial intelligence full-time through self-study, open-source work, and research-driven projects. Recently selected for Google Summer of Code with Project Mesa, where I work on developing a Hypergraph-based Meta-Agents architecture for Mesa. My interests lie at the intersection of AI agents, local-first LLM systems, reasoning architectures, and scalable developer tooling. I enjoy working on difficult problems involving autonomous systems, memory, orchestration, and efficient AI on constrained hardware. Most of my learning has come from building — not just studying — which has shaped a highly practical and systems-oriented approach to engineering.",
+    text: `I’m an AI engineer focused on building intelligent systems, agentic architectures, and practical ML infrastructure. I studied mechanical engineering in college and artificial intelligence full-time through self-study, open-source work, and research-driven projects.
+
+    Recently selected for Google Summer of Code with Project Mesa, where I work on developing a Hypergraph- based Meta- Agents architecture for Mesa. My interests lie at the intersection of AI agents, local - first LLM systems, reasoning architectures, and scalable developer tooling.
+
+    I enjoy working on difficult problems involving autonomous systems, memory, orchestration, and efficient AI on constrained hardware.Most of my learning has come from building — not just studying — which has shaped a highly practical and systems - oriented approach to engineering.`,
   },
   timeline: [
     {
