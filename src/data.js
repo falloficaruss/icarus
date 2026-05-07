@@ -7,14 +7,16 @@ export const portfolioData = {
       year: "2026",
       title: "GSoC contributor",
       organization: "Project Mesa",
-      description: "Developing a Hypergraph-based Meta-Agents backend along with Facade API for mesa",
+      description:
+        "Developing a Hypergraph-based Meta-Agents backend along with Facade API for mesa",
       current: true,
     },
     {
       year: "2025",
       title: "Research Intern",
-      organization: "Stability AI"
-      description: "Worked on improving efficiency and accessibility of diffusion-based generative models for low-resource environments (CPU / low VRAM setups). Contributed to internal tooling for faster inference, including optimizations in sampling pipelines and model loading strategies.",
+      organization: "Stability AI",
+      description:
+        "Worked on improving efficiency and accessibility of diffusion-based generative models for low-resource environments (CPU / low VRAM setups). Contributed to internal tooling for faster inference, including optimizations in sampling pipelines and model loading strategies.",
     },
   ],
   projects: [
@@ -62,9 +64,10 @@ export const portfolioData = {
     },
     {
       title: "10 Tips for Better Code",
-      description: "Simple practices that will make your codebase more maintainable.",
+      description:
+        "Simple practices that will make your codebase more maintainable.",
       link: "#",
-      category: "technical"
-    }
-  ]
+      category: "technical",
+    },
+  ],
 };
