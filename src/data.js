@@ -5,14 +5,16 @@ export const portfolioData = {
   timeline: [
     {
       year: "2026",
-      title: "GSoC contributor (Project Mesa)",
-      description: "",
+      title: "GSoC contributor",
+      organization: "Project Mesa"
+      description: "Developing a Hypergraph-based Meta-Agents backend along with Facade API for mesa",
       current: true,
     },
     {
-      year: "2022",
-      title: "Dropped out of college (AVCOE)",
-      description: "",
+      year: "2025",
+      title: "Research Intern",
+      organization: "Stability AI"
+      description: "Worked on improving efficiency and accessibility of diffusion-based generative models for low-resource environments (CPU / low VRAM setups). Contributed to internal tooling for faster inference, including optimizations in sampling pipelines and model loading strategies.",
     },
   ],
   projects: [
