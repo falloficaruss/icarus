@@ -6,7 +6,7 @@ export const portfolioData = {
     {
       year: "2026",
       title: "GSoC contributor",
-      organization: "Project Mesa"
+      organization: "Project Mesa",
       description: "Developing a Hypergraph-based Meta-Agents backend along with Facade API for mesa",
       current: true,
     },
