@@ -3,88 +3,255 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>falloficaruss — Portfolio</title>
-  <meta name="description" content="AI developer and researcher portfolio — projects, blogs, and timeline." />
+  <meta name="description" content="AI Developer and Researcher portfolio — clean, minimal, and professional." />
+  
+  <!-- Premium Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <!-- Starfield Canvas -->
-  <canvas id="starfield"></canvas>
+  <div class="app-container">
+    <!-- Sidebar / Info Panel -->
+    <aside class="sidebar">
+      <div class="sidebar-sticky">
+        <header class="profile-header">
+          <div class="avatar-container">
+            <!-- Minimal, beautiful interactive SVG avatar fallback, will show profile.jpg if it exists -->
+            <object data="profile.jpg" type="image/jpeg" class="profile-img">
+              <svg viewBox="0 0 100 100" class="profile-svg" aria-label="Abstract Profile Avatar">
+                <defs>
+                  <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="var(--accent-glow-start)" />
+                    <stop offset="100%" stop-color="var(--accent-glow-end)" />
+                  </linearGradient>
+                </defs>
+                <circle cx="50" cy="50" r="48" fill="none" stroke="url(#avatarGrad)" stroke-width="2" stroke-dasharray="4 2"/>
+                <circle cx="50" cy="50" r="40" fill="var(--bg-secondary)"/>
+                <path d="M50 30 A12 12 0 1 0 50 54 A12 12 0 1 0 50 30 Z M28 78 C28 64 38 58 50 58 C62 58 72 64 72 78" fill="var(--text-muted)" />
+              </svg>
+            </object>
+          </div>
+          <div class="profile-details">
+            <h1 class="profile-name">@falloficaruss</h1>
+            <p class="profile-title">ai dev & researcher</p>
+          </div>
+        </header>
 
-  <!-- Sidebar -->
-  <aside class="sidebar" id="sidebar">
-    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="sidebar-profile">
-      <img src="/profile.jpg" alt="Profile photo" class="profile-img" />
-      <p class="profile-tagline">ai dev &amp; researcher</p>
-    </div>
-    <nav class="sidebar-nav">
-      <a href="#about">About</a>
-      <a href="#timeline">Timeline</a>
-      <a href="#projects">Projects</a>
-      <a href="#blogs">Blogs</a>
-    </nav>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
-  </aside>
+        <nav class="nav-menu" aria-label="Main Navigation">
+          <ul>
+            <li><a href="#about" class="nav-link active"><span class="nav-number">01.</span> About</a></li>
+            <li><a href="#timeline" class="nav-link"><span class="nav-number">02.</span> Experience</a></li>
+            <li><a href="#projects" class="nav-link"><span class="nav-number">03.</span> Projects</a></li>
+            <li><a href="#blogs" class="nav-link"><span class="nav-number">04.</span> Writing</a></li>
+          </ul>
+        </nav>
 
-  <!-- Main Content -->
-  <main>
-    <section id="about" class="about fade-in-section">
-      <h1 class="section-title">About Me</h1>
-      <div class="about-content glass-card">
-        <p id="about-text"></p>
+        <div class="sidebar-footer">
+          <div class="social-links">
+            <a href="https://github.com/falloficaruss" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="https://x.com/falloficarus22" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="social-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="mailto:norizzabhii@gmail.com" aria-label="Email" class="social-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          </div>
+
+          <div class="theme-switch-container">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+              <span class="toggle-track">
+                <span class="toggle-thumb">
+                  <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                  <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </span>
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
-    </section>
+    </aside>
 
-    <section id="timeline" class="timeline-section fade-in-section">
-      <h2 class="section-title">Timeline</h2>
-      <div class="timeline" id="timeline-list">
-        <!-- Timeline items injected by JS -->
-      </div>
-    </section>
+    <!-- Main Content Stream -->
+    <main class="content-stream">
+      <!-- About Section -->
+      <section id="about" class="content-section active-observe">
+        <h2 class="section-title mobile-only">About</h2>
+        <div class="bio-prose">
+          <p>
+            I’m an AI engineer focused on building intelligent systems, agentic architectures, and practical ML infrastructure. I studied mechanical engineering in college and artificial intelligence full-time through self-study, open-source work, and research-driven projects.
+          </p>
+          <p>
+            Recently selected for <strong>Google Summer of Code with Project Mesa</strong>, where I work on developing a Hypergraph-based Meta-Agents architecture for Mesa. My interests lie at the intersection of AI agents, local-first LLM systems, reasoning architectures, and scalable developer tooling.
+          </p>
+          <p>
+            I enjoy working on difficult problems involving autonomous systems, memory, orchestration, and efficient AI on constrained hardware. Most of my learning has come from building — not just studying — which has shaped a highly practical and systems-oriented approach to engineering.
+          </p>
+        </div>
+      </section>
 
-    <section id="projects" class="projects fade-in-section">
-      <h2 class="section-title">Projects</h2>
-      <div class="grid-container" id="projects-grid">
-        <!-- Projects injected by JS -->
-      </div>
-    </section>
+      <!-- Experience (Timeline) Section -->
+      <section id="timeline" class="content-section active-observe">
+        <h2 class="section-header"><span class="section-num">02.</span> Experience</h2>
+        <div class="timeline-list">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-meta">
+              <span class="timeline-year">2026 — Present</span>
+              <span class="timeline-badge">Open Source</span>
+            </div>
+            <div class="timeline-body">
+              <h3 class="timeline-title">GSoC Contributor <span class="timeline-at">@</span> <a href="https://github.com/projectmesa" target="_blank" rel="noopener noreferrer" class="timeline-org">Project Mesa</a></h3>
+              <p class="timeline-desc">
+                Developing a Hypergraph-based Meta-Agents backend along with Facade API for mesa to enhance complex agent interaction capabilities in multi-level agent simulations.
+              </p>
+            </div>
+          </div>
 
-    <section id="blogs" class="blogs fade-in-section">
-      <h2 class="section-title">Blogs &amp; Writing</h2>
-      <div class="list-container" id="blogs-list">
-        <!-- Blogs injected by JS -->
-      </div>
-    </section>
-  </main>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-meta">
+              <span class="timeline-year">2025</span>
+              <span class="timeline-badge">Research</span>
+            </div>
+            <div class="timeline-body">
+              <h3 class="timeline-title">Research Intern <span class="timeline-at">@</span> <span class="timeline-org">Stability AI</span></h3>
+              <p class="timeline-desc">
+                Worked on improving efficiency and accessibility of diffusion-based generative models for low-resource environments (CPU / low VRAM setups). Contributed to internal tooling for faster inference, including optimizations in sampling pipelines and model loading strategies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <footer>
-    <div class="footer-content">
-      <div class="footer-socials">
-        <a href="https://github.com/falloficaruss" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        </a>
-        <a href="https://x.com/falloficarus22" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="social-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="mailto:norizzabhii@gmail.com" aria-label="Email" class="social-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        </a>
-      </div>
-      <p>&copy; 2026 @falloficaruss</p>
-    </div>
-  </footer>
-  <script type="module" src="/src/main.js"></script>
+      <!-- Projects Section -->
+      <section id="projects" class="content-section active-observe">
+        <h2 class="section-header"><span class="section-num">03.</span> Selected Projects</h2>
+        <div class="projects-grid">
+          
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-tag">Open Source</span>
+              <a href="https://summerofcode.withgoogle.com/programs/2026/projects/8Rhd5XVJ" target="_blank" rel="noopener noreferrer" aria-label="GSoC project detail page" class="project-external-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+            <h3 class="project-title">Hypergraph Based Meta-Agents</h3>
+            <p class="project-desc">
+              A canonical meta-agent architecture for Mesa supporting multi-level modeling. Introduces a unified backend for typed overlapping group memberships (households, workplaces) with group-level state aggregations.
+            </p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>Agents</span>
+              <span>Graph Theory</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-tag">Developer Tooling</span>
+              <a href="https://github.com/falloficaruss/axon.git" target="_blank" rel="noopener noreferrer" aria-label="Axon repository link" class="project-external-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+            <h3 class="project-title">Axon Coding Agent</h3>
+            <p class="project-desc">
+              A Rust-based terminal user interface (TUI) for an autonomous coding agent. Implements dynamic task routing, multi-agent planners, coder-tester loops, and real-time streaming parser.
+            </p>
+            <div class="project-tech">
+              <span>Rust</span>
+              <span>TUI</span>
+              <span>LLM Orchestration</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-tag">Research</span>
+              <a href="https://github.com/falloficaruss/MythosCore.git" target="_blank" rel="noopener noreferrer" aria-label="MythosCore repository link" class="project-external-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+            <h3 class="project-title">MythosCore Architecture</h3>
+            <p class="project-desc">
+              An open implementation of a recurrent-depth transformer architecture replacing parameter scaling with adaptive iterative reasoning streams and dynamic computation halting.
+            </p>
+            <div class="project-tech">
+              <span>PyTorch</span>
+              <span>Transformers</span>
+              <span>Reasoning Models</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <span class="project-tag">System GUI</span>
+              <a href="https://github.com/falloficaruss/hyper-croissant.git" target="_blank" rel="noopener noreferrer" aria-label="hyper-croissant repository link" class="project-external-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+            <h3 class="project-title">hyper-croissant</h3>
+            <p class="project-desc">
+              A Tauri-based desktop chess interface with a high-performance Rust backend. Integrates UCI chess engines, legal move generation, and live position heatmaps.
+            </p>
+            <div class="project-tech">
+              <span>Rust</span>
+              <span>Tauri</span>
+              <span>HTML5/JS</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Blogs Section -->
+      <section id="blogs" class="content-section active-observe">
+        <h2 class="section-header"><span class="section-num">04.</span> Writing &amp; Reflections</h2>
+        <div class="blogs-list">
+          <article class="blog-row">
+            <span class="blog-meta">Technical</span>
+            <div class="blog-main">
+              <h3 class="blog-title"><a href="#" class="blog-link">Understanding CSS Animations</a></h3>
+              <p class="blog-excerpt">A deep dive into creating highly performant, GPU-accelerated micro-animations for interactive user experiences.</p>
+            </div>
+          </article>
+
+          <article class="blog-row">
+            <span class="blog-meta">Guide</span>
+            <div class="blog-main">
+              <h3 class="blog-title"><a href="#" class="blog-link">My Journey into Artificial Intelligence</a></h3>
+              <p class="blog-excerpt">Reflections, lessons, and self-study roadmaps transitioning from Mechanical Engineering to full-time AI research.</p>
+            </div>
+          </article>
+
+          <article class="blog-row">
+            <span class="blog-meta">Technical</span>
+            <div class="blog-main">
+              <h3 class="blog-title"><a href="#" class="blog-link">10 Systems Guidelines for Modern AI Engineering</a></h3>
+              <p class="blog-excerpt">Practical architectural heuristics to make local-first and agentic AI pipelines reliable and resource-efficient.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Minimal clean footer -->
+      <footer class="main-footer">
+        <p class="footer-copy">&copy; 2026 @falloficaruss. Built for speed and minimal beauty.</p>
+        <p class="footer-status"><span class="status-indicator"></span> System Active — 200 OK</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Interactive script -->
+  <script src="script.js"></script>
 </body>
 
 </html>
